@@ -81,7 +81,12 @@ module.exports = function(webpackEnv) {
       },
       {
         loader: require.resolve('css-loader'),
-        options: cssOptions,
+        options: {
+          ...cssOptions,
+          modules: {
+            localIdentName: '[hash:base64:15]',
+          },
+        },
       },
       {
         // Options for PostCSS as we reference these options twice
@@ -105,9 +110,6 @@ module.exports = function(webpackEnv) {
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
           ],
-          modules: {
-            localIndentName: '[name]__[local]__[hash:base64:5]'
-          },
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
       },
