@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
@@ -28,13 +29,13 @@ class BurgerBuilder extends Component {
     };
 
     componentDidMount() {
-        axios.get('https://burger-builder-28283.firebaseio.com/ingredients.json').then(response => {
+        /*axios.get('https://burger-builder-28283.firebaseio.com/ingredients.json').then(response => {
             this.setState({
                 ingredients: response.data
             })
         }).catch(error => {
             this.setState({error: true})
-        });
+        });*/
     }
 
     updatePurchaseState(ingredients) {
